@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-bg text-ink font-body;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+  /* Foco visível em qualquer elemento navegável por teclado —
+     não removemos o outline, só estilizamos. */
+  :focus-visible {
+    outline: 2px solid #c76b2e;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .input {
+    @apply rounded-card border border-line bg-surface px-3 py-2.5 font-body text-base text-ink
+      placeholder:text-ink-muted/70 focus:border-primary;
+  }
+  .card {
+    @apply rounded-card border border-line bg-surface p-4 shadow-sm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
